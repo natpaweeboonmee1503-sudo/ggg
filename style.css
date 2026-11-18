@@ -13,7 +13,7 @@ body {
     color: #222;
 }
 
-/* เมนู */
+/* เมนูเว็บไซต์ */
 header {
     background: #071b3a;
     padding: 20px 8%;
@@ -49,11 +49,12 @@ nav ul li a:hover {
 /* หน้าแรก */
 .hero {
     min-height: 500px;
-    background: linear-gradient(135deg, #071b3a, #0755a5, #00a6d6);
+    background: linear-gradient(
+        135deg, #071b3a, #0755a5, #00a6d6
+    );
     display: flex;
     align-items: center;
     justify-content: space-around;
-    text-align: left;
     color: white;
     padding: 50px 8%;
     gap: 40px;
@@ -80,6 +81,7 @@ nav ul li a:hover {
 }
 
 .btn {
+    display: inline-block;
     background: #00c3ff;
     color: #071b3a;
     padding: 13px 30px;
@@ -92,7 +94,6 @@ nav ul li a:hover {
     background: white;
 }
 
-/* รูปคุณครูหน้าแรก */
 .hero-image {
     flex: 1;
     display: flex;
@@ -172,23 +173,39 @@ nav ul li a:hover {
 
 /* บุคลากร */
 .teacher {
-    padding: 70px 20px;
+    padding: 70px 8%;
     text-align: center;
     background: white;
 }
 
+/* จัดรูปครู 3 รูปเรียงแนวนอน */
+.teacher-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+
+/* กล่องรูปครู */
 .teacher-card {
-    max-width: 350px;
-    margin: 30px auto 0;
-    padding: 25px;
+    width: 300px;
+    padding: 20px;
     background: #f4f7fc;
     border-radius: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
+.teacher-card:hover {
+    transform: translateY(-8px);
+}
+
+/* รูปภาพครู */
 .teacher-card img {
     width: 100%;
-    height: 350px;
+    height: 300px;
     object-fit: cover;
     object-position: center top;
     border-radius: 15px;
@@ -202,6 +219,7 @@ nav ul li a:hover {
 
 .teacher-card p {
     line-height: 1.8;
+    color: #555;
 }
 
 /* ติดต่อ */
@@ -225,7 +243,7 @@ footer {
     text-align: center;
 }
 
-/* รองรับมือถือ */
+/* รองรับมือถือและแท็บเล็ต */
 @media (max-width: 768px) {
 
     nav {
@@ -248,11 +266,37 @@ footer {
         font-size: 28px;
     }
 
+    .hero-image img {
+        height: 350px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .teacher-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .teacher-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* รองรับมือถือจอเล็ก */
+@media (max-width: 480px) {
+
     .cards {
         grid-template-columns: 1fr;
     }
 
-    .hero-image img {
-        height: 350px;
+    .hero-content h1 {
+        font-size: 25px;
+    }
+
+    .about {
+        padding: 50px 8%;
     }
 }
